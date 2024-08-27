@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
@@ -31,7 +32,35 @@ class UserController extends Controller
         $user->save();
 
 
-        return redirect('/dashboard')->with('success','User created successfully');
 
+        return redirect('/')->with('success','You have successfully registered');
+    }
+
+    public function login(Request $request){
+        //validations
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+
+        //check if user exists
+        $user = User::where('email',$request->email)->first();
+        if(!$user){
+            return back()->with('error','Invalid credentials');
+        }
+
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+            $user = Auth::user();
+            if($user->user_role == 'admin'){
+                return redirect('admin/dashboard');
+            }else{
+                return redirect('dashboard');
+            }
+        }
+        return back()->with('error','Invalid credentials');
+    }
+
+    public function index(){
+        return view('Admin.index');
     }
 }

@@ -6,6 +6,9 @@ use App\Http\Controllers\UserController;
 
 
 Route::post('/register',[UserController::class,'register']);
+Route::post('/login',[UserController::class,'login']);
+
+Route::get('admin/dashboard',[UserController::class,'index'])->middleware(['auth','admin']);
 
 
 Route::get('/', function () {
