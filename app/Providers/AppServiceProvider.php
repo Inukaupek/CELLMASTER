@@ -28,7 +28,10 @@ class AppServiceProvider extends ServiceProvider
         Livewire::component('toggle-availability', \App\Http\Livewire\ToggleAvailability::class);
         Livewire::component('admin-mobile-table', \App\Http\Livewire\AdminMobileTable::class);
         Livewire::component('driver-table', \App\Http\Livewire\DriverTable::class);
-
+        Livewire::component('pending-order-table', \App\Http\Livewire\PendingOrderTable::class);
+        Livewire::component('admin-order-status', \App\Http\Livewire\AdminOrderStatus::class);
+        Livewire::component('supplier-order-status', \App\Http\Livewire\SupplierOrderStatus::class);
+        Livewire::component('supplier-order-table', \App\Http\Livewire\SupplierOrderTable::class);
 
     }
 }

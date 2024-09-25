@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Orders;
 
 
 class UserController extends Controller
@@ -80,7 +81,7 @@ class UserController extends Controller
             if ($user->user_role == 'admin') {
                 return redirect('admin/dashboard');
             } else if ($user->user_role == 'supplier') {
-                return redirect('supplier/dashboard');
+                return redirect('supplier/products');
             } else {
                 return redirect('dashboard');
             }
@@ -126,5 +127,25 @@ class UserController extends Controller
 
     public function showDriverstosupplier(){
         return view('Supplier.drivers');
+    }
+
+    public function showOrders(){
+        return view('Admin.orders');
+    }
+
+    public function assignsupplier($orderId){
+        $order = Orders::findOrFail($orderId);
+
+        return view('Admin.proceed', compact('order'));
+    }
+
+    public function showSupplierOrders(){
+        return view('Supplier.orders');
+    }
+
+    public function assigndriver($orderId){
+        $order = Orders::findOrFail($orderId);
+
+        return view('Supplier.proceed', compact('order'));
     }
 }

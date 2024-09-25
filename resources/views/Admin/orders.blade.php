@@ -1,6 +1,5 @@
 <x-app-layout>
     <x-admin-navigation />
 
-        @livewire('admin-mobile-table')
-
+        <livewire:pending-order-table />
 </x-app-layout>

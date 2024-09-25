@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Orders;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
@@ -14,16 +15,17 @@ class OrderController extends Controller
     {
         // Validate the request data
         $validatedData = $request->validate([
-            'customer_id' => 'required|exists:customers,id',
             'mobile_phone_id' => 'required|exists:mobile_phones,id',
             'quantity' => 'required|integer|min:1',
             'order_amount' => 'required|numeric|min:0',
             'date_of_order' => 'required|date',
         ]);
 
+        $customer_id = auth()->user()->id;
+
         // Store the order, ensuring only the date is saved
         $order = Orders::create([
-            'customer_id' => $validatedData['customer_id'],
+            'customer_id' => $customer_id,
             'mobile_phone_id' => $validatedData['mobile_phone_id'],
             'quantity' => $validatedData['quantity'],
             'order_amount' => $validatedData['order_amount'],

@@ -1,8 +1,6 @@
 <x-app-layout>
 
-
     <x-supplier-navigation />
-        <livewire:driver-table />
 
-
+        <livewire:supplier-order-table />
 </x-app-layout>
