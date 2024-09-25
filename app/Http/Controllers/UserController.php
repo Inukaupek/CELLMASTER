@@ -10,18 +10,38 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function register (Request $request){
+    public function register(Request $request)
+    {
+        // Validation rules
         $request->validate([
             'name' => 'required|string|max:255',
             'user_role' => 'required|string|in:driver,supplier,admin',
             'address' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
-            'phone_number' => 'required|string|unique:users',
-            'password' => 'required|string|min:8',
+            'email' => 'required|email|unique:users|max:255',
+            'phone_number' => 'required|string|unique:users|regex:/^[0-9]{10,15}$/',
+            'password' => [
+                'required',
+                'string',
+                'min:8', // Minimum 8 characters
+                'regex:/[a-z]/', // At least one lowercase letter
+                'regex:/[A-Z]/', // At least one uppercase letter
+                'regex:/[0-9]/', // At least one number
+                'regex:/[@$!%*?&#]/', // At least one special character
+            ],
+        ], [
+            // Custom error messages
+            'name.required' => 'Name is required.',
+            'user_role.required' => 'User role is required.',
+            'address.required' => 'Address is required.',
+            'email.required' => 'Email is required.',
+            'email.unique' => 'This email is already registered.',
+            'phone_number.required' => 'Phone number is required.',
+            'phone_number.regex' => 'Phone number must be between 10 to 15 digits.',
+            'password.required' => 'Password is required.',
+            'password.regex' => 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.',
         ]);
 
-
-
+        // Create new user
         $user = new User();
         $user->name = $request->name;
         $user->user_role = $request->user_role;
@@ -31,36 +51,80 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-
-
-        return redirect('/')->with('success','You have successfully registered');
+        return redirect('/')->with('success', 'You have successfully registered');
     }
 
-    public function login(Request $request){
-        //validations
+    public function login(Request $request)
+    {
+        // Validation rules
         $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|string',
+            'email' => 'required|email|max:255',
+            'password' => 'required|string|min:8',
+        ], [
+            // Custom error messages
+            'email.required' => 'Email is required.',
+            'email.email' => 'Please enter a valid email address.',
+            'password.required' => 'Password is required.',
+            'password.min' => 'Password is Incorrect.',
         ]);
 
-        //check if user exists
-        $user = User::where('email',$request->email)->first();
-        if(!$user){
-            return back()->with('error','Invalid credentials');
+        // Check if the user exists
+        $user = User::where('email', $request->email)->first();
+        if (!$user) {
+            return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
         }
 
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
+        // Authenticate user
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
-            if($user->user_role == 'admin'){
+            if ($user->user_role == 'admin') {
                 return redirect('admin/dashboard');
-            }else{
+            } else if ($user->user_role == 'supplier') {
+                return redirect('supplier/dashboard');
+            } else {
                 return redirect('dashboard');
             }
         }
-        return back()->with('error','Invalid credentials');
+
+        // Invalid credentials message
+        return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
     }
+
+
 
     public function index(){
         return view('Admin.index');
+    }
+
+    public function showCustomers(){
+        return view('Admin.customer');
+    }
+
+    public function showSuppliers(){
+        return view('Admin.suppliers');
+    }
+
+    public function Showsupplierdashboard(){
+        return view('Supplier.index');
+    }
+
+    public function ShowProducts(){
+        return view('Supplier.products');
+    }
+
+    public function createproduct(){
+        return view('Supplier.create');
+    }
+
+    public function showAdminProducts(){
+        return view('Admin.products');
+    }
+
+    public function showDrivers(){
+        return view('Admin.drivers');
+    }
+
+    public function showDriverstosupplier(){
+        return view('Supplier.drivers');
     }
 }

@@ -20,6 +20,8 @@
     <body class="font-sans antialiased">
         <x-banner />
 
+
+
         <div class="min-h-screen bg-gray-100">
             @livewire('navigation-menu')
 
@@ -41,5 +43,15 @@
         @stack('modals')
 
         @livewireScripts
+
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+
+        @stack('scripts')
+
+
+
+
+
     </body>
 </html>

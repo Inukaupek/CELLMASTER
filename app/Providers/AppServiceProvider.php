@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Livewire::component('customer-count', \App\Http\Livewire\CustomerCount::class);
+        Livewire::component('customer-table', \App\Http\Livewire\CustomerTable::class);
+        Livewire::component('supplier-table', \App\Http\Livewire\SupplierTable::class);
+        Livewire::component('supplier-mobile-phones', \App\Http\Livewire\SupplierMobilePhones::class);
+        Livewire::component('mobile-phones-table', \App\Http\Livewire\MobilePhonesTable::class);
+        Livewire::component('toggle-availability', \App\Http\Livewire\ToggleAvailability::class);
+        Livewire::component('admin-mobile-table', \App\Http\Livewire\AdminMobileTable::class);
+        Livewire::component('driver-table', \App\Http\Livewire\DriverTable::class);
+
+
     }
 }
