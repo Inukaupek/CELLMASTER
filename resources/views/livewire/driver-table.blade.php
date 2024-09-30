@@ -2,7 +2,6 @@
 
 <div class="p-11 w-4/5 bg-white ml-10 mt-8 ">
 
-
     <table class="min-w-full max-auto divide-y divide-gray-400 rounded-lg">
         <thead class="bg-custom-blue">
             <tr>

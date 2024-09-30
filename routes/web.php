@@ -19,6 +19,7 @@ Route::get('/admin/products', [UserController::class,'showAdminProducts'])->name
 Route::get('admin/drivers', [UserController::class,'showDrivers'])->name('admin.drivers')->middleware(['auth', 'role:admin']);
 Route::get('/admin/orders', [UserController::class,'showOrders'])->name('admin.orders')->middleware(['auth','role:admin']);
 Route::get('/admin/assignsupplier/{order}', [UserController::class,'assignsupplier'])->name('admin.proceed')->middleware(['auth','role:admin']);
+Route::get('/admin/completedorders',[UserController::class,'showCompletedOrders'])->name('admin.completedorders')->middleware(['auth','role:admin']);
 
 
 Route::get('/supplier/dashboard',[UserController::class,'Showsupplierdashboard'])->name('Supplier.index')->middleware(['auth','role:supplier']);
@@ -30,7 +31,13 @@ Route::put('/mobilephones/{id}', [MobilePhoneController::class, 'update'])->name
 Route::get('supplier/drivers', [UserController::class,'showDriverstosupplier'])->name('Supplier.drivers')->middleware(['auth', 'role:supplier']);
 Route::get('/supplier/orders', [UserController::class,'showSupplierOrders'])->name('Supplier.orders')->middleware(['auth','role:supplier']);
 Route::get('/supplier/assigndriver/{order}', [UserController::class,'assigndriver'])->name('Supplier.proceed')->middleware(['auth','role:supplier']);
+Route::get('/supplier/completedorders',[UserController::class,'showsupplierCompletedOrders'])->name('Supplier.completedorders')->middleware(['auth','role:supplier']);
 
+
+
+Route::get('/Drivers/index',[UserController::class,'driverindex'])->name('Drivers.index')->middleware(['auth','role:driver']);
+Route::get('/Driver/orders', [UserController::class,'showDriverOrders'])->name('Drivers.index')->middleware(['auth','role:driver']);
+Route::get('/Driver/completedorders',[UserController::class,'showdriverompletedOrders'])->name('Drivers.completedorders')->middleware(['auth','role:driver']);
 
 
 

@@ -1,9 +1,17 @@
 <div>
     @if (session()->has('message'))
-        <div class="bg-green-500 text-white px-3 py-3 rounded mt-3">
-            {{ session('message') }}
-        </div>
-    @endif
+    <div
+        x-data="{ show: true }"
+        x-init="setTimeout(() => show = false, 2000)"
+        x-show="show"
+        x-transition:leave="transition ease-in duration-500"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="bg-green-500 text-white px-3 py-3 rounded mt-3"
+    >
+        {{ session('message') }}
+    </div>
+@endif
     <div class="p-11 bg-white w-full mt-6">
 
     <form wire:submit.prevent="store" class="space-y-4">

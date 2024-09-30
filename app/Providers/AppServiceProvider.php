@@ -32,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
         Livewire::component('admin-order-status', \App\Http\Livewire\AdminOrderStatus::class);
         Livewire::component('supplier-order-status', \App\Http\Livewire\SupplierOrderStatus::class);
         Livewire::component('supplier-order-table', \App\Http\Livewire\SupplierOrderTable::class);
+        Livewire::component('driver-order-table', \App\Http\Livewire\DriverOrderTable::class);
+        Livewire::component('completed-orders', \App\Http\Livewire\CompletedOrders::class);
 
     }
 }

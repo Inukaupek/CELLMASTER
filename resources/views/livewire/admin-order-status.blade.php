@@ -1,7 +1,15 @@
 <div class="p-11 w-4/5 bg-white ml-10 mt-8 ">
 
     @if (session()->has('message'))
-    <div class="bg-green-500 text-white px-3 py-3 rounded mt-3 duration-0.3">
+    <div
+        x-data="{ show: true }"
+        x-init="setTimeout(() => show = false, 2000)"
+        x-show="show"
+        x-transition:leave="transition ease-in duration-500"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="bg-green-500 text-white px-3 py-3 rounded mt-3"
+    >
         {{ session('message') }}
     </div>
 @endif

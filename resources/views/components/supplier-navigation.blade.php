@@ -12,7 +12,7 @@
                 <a href="{{route('Supplier.orders')}}">Orders</a>
             </li>
             <li class="px-6 py-4 hover:bg-custom-blue">
-                <a href="">Success Orders</a>
+                <a href="{{route('Supplier.completedorders')}}">Success Orders</a>
             </li>
         </ul>
     </div>

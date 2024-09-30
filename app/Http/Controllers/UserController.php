@@ -82,9 +82,13 @@ class UserController extends Controller
                 return redirect('admin/dashboard');
             } else if ($user->user_role == 'supplier') {
                 return redirect('supplier/products');
-            } else {
+            } else if($user->user_role == 'driver'){
+                return redirect('Drivers/index');
+
+            } else{
                 return redirect('dashboard');
-            }
+
+        }
         }
 
         // Invalid credentials message
@@ -148,4 +152,25 @@ class UserController extends Controller
 
         return view('Supplier.proceed', compact('order'));
     }
+
+    public function driverindex(){
+        return view('Drivers.index');
+    }
+
+    public function showDriverOrders(){
+        return view('Drivers.index');
+    }
+
+    public function showCompletedOrders(){
+        return view('Admin.completedorders');
+    }
+
+    public function showsupplierCompletedOrders(){
+        return view('Supplier.completedorders');
+    }
+
+    public function showdriverompletedOrders(){
+        return view('Drivers.completedorders');
+    }
+
 }
