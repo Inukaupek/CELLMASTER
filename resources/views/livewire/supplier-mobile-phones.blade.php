@@ -7,14 +7,19 @@
         x-transition:leave="transition ease-in duration-500"
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
-        class="bg-green-500 text-white px-3 py-3 rounded mt-3"
+        class="bg-green-500 text-white px-3 py-3 rounded mt-3 ml-32 w-full"
     >
         {{ session('message') }}
     </div>
 @endif
-    <div class="p-11 bg-white w-full mt-6">
+<div class="p-11 w-full bg-white ml-32 mt-8 ">
 
-    <form wire:submit.prevent="store" class="space-y-4">
+    <h1 class="text-2xl font-semibold custom-font-2 mb-3">
+        Add Mobile Phones
+    </h1>
+
+
+    <form wire:submit.prevent="store" class="space-y-4 ">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <input type="text" wire:model="name" placeholder="Mobile Name" class="border p-2 rounded w-full">
         <input type="text" wire:model="brand" placeholder="Brand" class="border p-2 rounded w-full">

@@ -24,7 +24,7 @@
                         {{ $mobilePhone->availability ? 'In Stock' : 'Out of Stock' }}
                     </span>
                 </p>
-                <a href="{{ route('Supplier.products') }}" class="bg-custom-blue text-white px-3 py-2 rounded-md">Back</a>
+
                 <a href="{{ route('Supplier.edit', $mobilePhone->id) }}" class="bg-yellow-400 text-white px-3 py-2 rounded-md">Edit</a>
             </div>
 

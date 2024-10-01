@@ -4,31 +4,28 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Customer;
+use Livewire\WithPagination;
 
 class CustomerTable extends Component
 {
+    use WithPagination;
 
-    // get the user details from the Customer database
-    public $customers;
+    public $search = '';  // Property to hold the search term
 
-    public function mount()
+    public function updatingSearch()
     {
-        $this->customers = Customer::all();
+        // This function will reset the page to 1 when the search term is updated
+        $this->resetPage();
     }
-
-    //serach function
-    public $search = '';  // Add a public property to hold the search term
 
     public function render()
     {
-        // Filter customers based on the search input
+        // Fetch paginated customers based on the search input
         $customers = Customer::where('name', 'like', '%' . $this->search . '%')
             ->orWhere('email', 'like', '%' . $this->search . '%')
             ->orWhere('contact', 'like', '%' . $this->search . '%')
-            ->get();
+            ->paginate(4);  // Change the number 8 to how many records you want per page
 
         return view('livewire.customer-table', ['customers' => $customers]);
     }
-
-
 }

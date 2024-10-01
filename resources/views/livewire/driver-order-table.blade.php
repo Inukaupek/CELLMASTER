@@ -14,6 +14,9 @@
     </div>
 @endif
 
+    <h1 class="text-2xl font-semibold custom-font-2 mb-3">
+        Orders
+    </h1>
 
     <!-- Table of mobile phones -->
     <table class="min-w-full max-auto divide-y divide-gray-400 rounded-lg mt-5">

@@ -1,5 +1,7 @@
 <div class="p-11 w-4/5 bg-white ml-10 mt-8 ">
 
+
+
    @if (session()->has('message'))
     <div
         x-data="{ show: true }"

@@ -21,7 +21,7 @@
                 <a href="{{route('admin.orders')}}">Orders</a>
             </li>
             <li class="px-6 py-4 hover:bg-custom-blue">
-                <a href="{{route('admin.completedorders')}}">Success Orders</a>
+                <a href="{{route('admin.completedorders')}}">Completed Orders</a>
             </li>
         </ul>
     </div>

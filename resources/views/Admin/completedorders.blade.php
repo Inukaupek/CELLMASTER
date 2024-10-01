@@ -4,4 +4,5 @@
     <livewire:completed-orders viewType="admin" />
 
 
+
 </x-app-layout>

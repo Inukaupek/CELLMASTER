@@ -3,21 +3,18 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\MobilePhones;
 
 class AdminMobileTable extends Component
 {
-    public $mobilePhones;
-
-    public function mount()
-    {
-        $this->mobilePhones = MobilePhones::all();
-
-    }
-
+    use WithPagination;
 
     public function render()
     {
-        return view('livewire.admin-mobile-table');
+
+        $mobilePhones = MobilePhones::paginate(7);
+
+        return view('livewire.admin-mobile-table', ['mobilePhones' => $mobilePhones]);
     }
 }

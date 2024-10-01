@@ -1,11 +1,28 @@
 <div class="p-11 w-4/5 bg-white ml-10 mt-8 ">
+    <h1 class="text-2xl font-semibold custom-font-2 mb-3">
+        Mobile Phones
+    </h1>
 
-    <!-- Add a button for adding new items -->
+
     <div class="flex justify-end pb-4">
         <a href="{{ route('Supplier.create') }}" class="bg-blue-900 text-white px-4 py-2 rounded-md">Add an Item</a>
     </div>
 
-    <!-- Table of mobile phones -->
+    @if (session()->has('message'))
+    <div
+        x-data="{ show: true }"
+        x-init="setTimeout(() => show = false, 2000)"
+        x-show="show"
+        x-transition:leave="transition ease-in duration-500"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="bg-green-500 text-white px-3 py-3 rounded mt-3 ml-32 w-full"
+    >
+        {{ session('message') }}
+    </div>
+@endif
+
+
     <table class="min-w-full max-auto divide-y divide-gray-400 rounded-lg">
         <thead class="bg-custom-blue">
             <tr>

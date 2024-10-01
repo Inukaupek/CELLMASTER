@@ -12,32 +12,41 @@ use App\Http\Controllers\MobilePhoneController;
 Route::post('/register',[UserController::class,'register']);
 Route::post('/login',[UserController::class,'login']);
 
-Route::get('admin/dashboard',[UserController::class,'index'])->name('admin.index')->middleware(['auth','role:admin']);
-Route::get('/admin/customers', [UserController::class,'showCustomers'])->name('admin.customer')->middleware(['auth','role:admin']);
-Route::get('/admin/suppliers', [UserController::class,'showSuppliers'])->name('admin.suppliers')->middleware(['auth','role:admin']);
-Route::get('/admin/products', [UserController::class,'showAdminProducts'])->name('admin.products')->middleware(['auth','role:admin']);
-Route::get('admin/drivers', [UserController::class,'showDrivers'])->name('admin.drivers')->middleware(['auth', 'role:admin']);
-Route::get('/admin/orders', [UserController::class,'showOrders'])->name('admin.orders')->middleware(['auth','role:admin']);
-Route::get('/admin/assignsupplier/{order}', [UserController::class,'assignsupplier'])->name('admin.proceed')->middleware(['auth','role:admin']);
-Route::get('/admin/completedorders',[UserController::class,'showCompletedOrders'])->name('admin.completedorders')->middleware(['auth','role:admin']);
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('admin/dashboard', [UserController::class,'index'])->name('admin.index');
+    Route::get('/admin/customers', [UserController::class,'showCustomers'])->name('admin.customer');
+    Route::get('/admin/suppliers', [UserController::class,'showSuppliers'])->name('admin.suppliers');
+    Route::get('/admin/products', [UserController::class,'showAdminProducts'])->name('admin.products');
+    Route::get('admin/drivers', [UserController::class,'showDrivers'])->name('admin.drivers');
+    Route::get('/admin/orders', [UserController::class,'showOrders'])->name('admin.orders');
+    Route::get('/admin/assignsupplier/{order}', [UserController::class,'assignsupplier'])->name('admin.proceed');
+    Route::get('/admin/completedorders', [UserController::class,'showCompletedOrders'])->name('admin.completedorders');
+});
 
 
-Route::get('/supplier/dashboard',[UserController::class,'Showsupplierdashboard'])->name('Supplier.index')->middleware(['auth','role:supplier']);
-Route::get('/supplier/products',[UserController::class,'ShowProducts'])->name('Supplier.products')->middleware(['auth','role:supplier']);
-Route::get('/supplier/create',[UserController::class,'createproduct'])->name('Supplier.create')->middleware(['auth','role:supplier']);
-Route::get('/mobilephones/{id}', [MobilePhoneController::class, 'show'])->name('Supplier.show')->middleware(['auth','role:supplier']);
-Route::get('/mobilephones/{id}/edit', [MobilePhoneController::class, 'edit'])->name('Supplier.edit')->middleware(['auth','role:supplier']);
-Route::put('/mobilephones/{id}', [MobilePhoneController::class, 'update'])->name('Supplier.update')->middleware(['auth','role:supplier']);
-Route::get('supplier/drivers', [UserController::class,'showDriverstosupplier'])->name('Supplier.drivers')->middleware(['auth', 'role:supplier']);
-Route::get('/supplier/orders', [UserController::class,'showSupplierOrders'])->name('Supplier.orders')->middleware(['auth','role:supplier']);
-Route::get('/supplier/assigndriver/{order}', [UserController::class,'assigndriver'])->name('Supplier.proceed')->middleware(['auth','role:supplier']);
-Route::get('/supplier/completedorders',[UserController::class,'showsupplierCompletedOrders'])->name('Supplier.completedorders')->middleware(['auth','role:supplier']);
+Route::middleware(['auth', 'role:supplier'])->group(function () {
+    Route::get('/supplier/dashboard', [UserController::class,'Showsupplierdashboard'])->name('Supplier.index');
+    Route::get('/supplier/products', [UserController::class,'ShowProducts'])->name('Supplier.products');
+    Route::get('/supplier/create', [UserController::class,'createproduct'])->name('Supplier.create');
+    Route::get('/mobilephones/{id}/edit', [MobilePhoneController::class, 'edit'])->name('Supplier.edit');
+    Route::put('/mobilephones/{id}', [MobilePhoneController::class, 'update'])->name('Supplier.update');
+    Route::get('supplier/drivers', [UserController::class,'showDriverstosupplier'])->name('Supplier.drivers');
+    Route::get('/supplier/orders', [UserController::class,'showSupplierOrders'])->name('Supplier.orders');
+    Route::get('/supplier/assigndriver/{order}', [UserController::class,'assigndriver'])->name('Supplier.proceed');
+    Route::get('/supplier/completedorders', [UserController::class,'showsupplierCompletedOrders'])->name('Supplier.completedorders');
+});
 
 
+Route::middleware(['auth', 'role:driver'])->group(function () {
+    Route::get('/Drivers/index', [UserController::class,'driverindex'])->name('Drivers.index');
+    Route::get('/Driver/orders', [UserController::class,'showDriverOrders'])->name('Drivers.index');
+    Route::get('/Driver/completedorders', [UserController::class,'showdriverompletedOrders'])->name('Drivers.completedorders');
+});
 
-Route::get('/Drivers/index',[UserController::class,'driverindex'])->name('Drivers.index')->middleware(['auth','role:driver']);
-Route::get('/Driver/orders', [UserController::class,'showDriverOrders'])->name('Drivers.index')->middleware(['auth','role:driver']);
-Route::get('/Driver/completedorders',[UserController::class,'showdriverompletedOrders'])->name('Drivers.completedorders')->middleware(['auth','role:driver']);
+
+    Route::get('/mobilephones/{id}', [MobilePhoneController::class, 'show'])->name('Supplier.show')->middleware('auth', 'role:supplier,admin');
+
 
 
 

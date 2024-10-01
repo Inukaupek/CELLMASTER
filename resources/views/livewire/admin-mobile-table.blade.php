@@ -2,7 +2,10 @@
 
 <div class="p-11 w-4/5 bg-white ml-10 mt-8 ">
 
-
+<!-- title Mobile Phones h1 -->
+<h1 class="text-2xl font-semibold custom-font-2 mb-3">
+    Mobile Phones
+</h1>
 
     <table class="min-w-full max-auto divide-y divide-gray-400 rounded-lg">
         <thead class="bg-custom-blue">
@@ -52,13 +55,15 @@
                         {{ $mobilePhone->availability ? 'In Stock' : 'Out of Stock' }}
                     </td>
                     <td class="pl-3 py-4 whitespace-nowrap text-right text-sm text-gray-500">
-                        <a href="" class="bg-green-500 text-white px-4 py-2 rounded-md mr-3">View More</a>
+                        <a href="{{route('Supplier.show',$mobilePhone->id)}}" class="bg-green-500 text-white px-4 py-2 rounded-md mr-3">View More</a>
                         <a href="" class="bg-red-500 text-white px-4 py-2 rounded-md">Delete</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
-
-
     </table>
+
+    <div class="mt-4 ">
+        {{ $mobilePhones->links('pagination::tailwind') }}
+    </div>
 </div>

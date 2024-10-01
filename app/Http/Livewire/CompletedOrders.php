@@ -5,61 +5,63 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Orders;
 use Illuminate\Support\Facades\Auth;
+use Livewire\WithPagination;
 
 class CompletedOrders extends Component
 {
-    public $completedOrders;
+    use WithPagination; // Livewire pagination trait
+
     public $viewType;
 
     public function mount($viewType)
     {
         $this->viewType = $viewType;
-        $this->loadCompletedOrders();
-    }
-
-    public function loadCompletedOrders()
-    {
-        switch ($this->viewType) {
-            case 'admin':
-                $this->getallcompletedorders();
-                break;
-            case 'supplier':
-                $this->getsuppliercompletedorders();
-                break;
-            case 'driver':
-                $this->getdrivercompletedorders();
-                break;
-            default:
-                $this->getallcompletedorders();
-        }
     }
 
 
     public function getsuppliercompletedorders()
     {
         $supplierID = Auth::user()->id;
-        $this->completedOrders = Orders::where('supplier_id', $supplierID)
+        return Orders::where('supplier_id', $supplierID)
             ->where('order_status', 'Completed')
-            ->get();
+            ->paginate(8);
     }
 
     public function getdrivercompletedorders()
     {
         $driverID = Auth::user()->id;
-        $this->completedOrders = Orders::where('driver_id', $driverID)
+        return Orders::where('driver_id', $driverID)
             ->where('order_status', 'Completed')
-            ->get();
+            ->paginate(8);
     }
 
     public function getallcompletedorders()
     {
-        $this->completedOrders = Orders::where('order_status', 'Completed')->get();
+        return Orders::where('order_status', 'Completed')->paginate(8);
     }
 
     public function render()
     {
+        $orders = null;
+
+        // Fetch orders based on viewType
+        switch ($this->viewType) {
+            case 'admin':
+                $orders = $this->getallcompletedorders();
+                break;
+            case 'supplier':
+                $orders = $this->getsuppliercompletedorders();
+                break;
+            case 'driver':
+                $orders = $this->getdrivercompletedorders();
+                break;
+            default:
+                $orders = $this->getallcompletedorders();
+        }
+
+        // Pass orders to the view
         return view('livewire.completed-orders', [
-            'orders' => $this->completedOrders,
+            'orders' => $orders,
         ]);
     }
 }
