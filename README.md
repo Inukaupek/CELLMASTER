@@ -5,7 +5,7 @@ Cellmaster is a comprehensive mobile and accessories selling platform designed t
 
 ## Project Document
 
- - [CELLMASTER Document](file:///C:/Users/inuka/Downloads/SSP%20-%20CELMASTER%20REPORT.pdf)
+ - [CELLMASTER Document](./cellmaster.pdf)
  
 ## Features
 
