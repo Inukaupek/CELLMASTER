@@ -99,6 +99,19 @@ Flutter
 ![driv](https://github.com/user-attachments/assets/81455673-a4de-44b1-8cf3-35ea51350be6)
 
 
+## Future Upgrades
+#### Live Order Tracking
+Key improvements will entail real-time order tracking. In a world where all customers want to see things take place in real time, it allows customers to track their orders from the very moment of placing the order until the actual delivery date.
+
+#### Chat Features Between Customers and Suppliers
+Another improvement that is needed is developing chat functions to interlink the customers with suppliers.
+
+#### Phone Repair Service
+Other value-added services that will be launched include repair services. 
+
+#### Admin-Comfortable Advanced Tools for Analytics
+The administrator will receive vital insights into comprehensive data on inventory levels, customer behavior, and sales success, among other subjects, with the introduction of advanced analytics-internal tools. 
+
 
 
 
