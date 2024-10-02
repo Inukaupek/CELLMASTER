@@ -73,5 +73,43 @@ public function update(Request $request, $id)
     }
 }
 
+//delete function
+
+public function destroy($id)
+{
+    $mobilePhone = MobilePhones::findOrFail($id);
+
+    try {
+        // Delete the image if it exists
+        if ($mobilePhone->image && \Storage::disk('public')->exists($mobilePhone->image)) {
+            \Storage::disk('public')->delete($mobilePhone->image);
+        }
+
+        $mobilePhone->delete();
+
+        // Return back to the page with success message
+        return redirect()->back()->with('message','Successfuly deleted the record');
+
+    } catch (\Exception $e) {
+        // Log the error for debugging
+        \Log::error('Mobile phone delete error: ' . $e->getMessage());
+
+        // Return an error response with the exception message
+        return response()->json(['error' => 'Delete failed: ' . $e->getMessage()], 500);
+    }
+}
+
+//get mobile phones details to API and return as JSON
+    public function customerIndex()
+    {
+        $mobilePhones = MobilePhones::all();
+
+        return response()->json([
+            'success' => true,
+            'data' => $mobilePhones
+        ]);
+    }
+
+
 
 }

@@ -45,11 +45,16 @@ Route::middleware(['auth', 'role:driver'])->group(function () {
 });
 
 
-    Route::get('/mobilephones/{id}', [MobilePhoneController::class, 'show'])->name('Supplier.show')->middleware('auth', 'role:supplier,admin');
 
 
 
 
+    Route::middleware(['auth', 'role:supplier,admin'])->group(function () {
+        Route::get('/mobilephones/{id}', [MobilePhoneController::class, 'show'])->name('Supplier.show');
+        //delete route
+        Route::delete('/mobilephones/{id}', [MobilePhoneController::class, 'destroy'])->name('Supplier.destroy');
+
+    });
 
 Route::get('/', function () {
     return view('auth.login');

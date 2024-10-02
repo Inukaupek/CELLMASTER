@@ -16,7 +16,7 @@
         x-transition:leave="transition ease-in duration-500"
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0"
-        class="bg-green-500 text-white px-3 py-3 rounded mt-3 ml-32 w-full"
+        class="bg-green-500 text-white px-3 py-3 rounded mt-3  mb-3 min-w-full max-auto"
     >
         {{ session('message') }}
     </div>
@@ -51,7 +51,11 @@
                     <td class="pl-3 py-4 whitespace-nowrap text-right text-sm text-gray-500">
                         <a href="{{ route('Supplier.show', $mobilePhone->id) }}" class="bg-green-500 text-white px-3 py-2 rounded-md">More</a>
 
-                        <a href="" class="bg-red-500 text-white px-3 py-2 rounded-md">Delete</a>
+                        <form action="{{ route('Supplier.destroy', $mobilePhone->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');" style="display: inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-500 text-white px-3 py-2 rounded-md">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

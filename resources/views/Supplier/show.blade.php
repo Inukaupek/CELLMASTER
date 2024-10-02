@@ -1,7 +1,7 @@
 <x-app-layout>
 
-    <x-supplier-navigation />
-        <div class="p-11 w-4/5 bg-white ml-10 mt-8 ">
+
+        <div class="p-11 w-4/5 bg-white ml-40 mt-8 mr-10 ">
 
     <div class="container mx-auto px-4 py-6">
         <h1 class="text-2xl font-bold mb-4">{{ $mobilePhone->name }}</h1>

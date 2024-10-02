@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\CustomerController;
 use App\Http\Controllers\api\OrderController;
+use App\Http\Controllers\MobilePhoneController;
 
 
 Route::post('auth/register',[CustomerController::class, 'register']);
@@ -14,3 +15,6 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::post('/auth/order',[OrderController::class, 'store'])->middleware('auth:sanctum');
+
+
+Route::get('/mobile-phones', [MobilePhoneController::class, 'customerIndex']);
