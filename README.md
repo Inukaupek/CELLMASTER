@@ -68,5 +68,45 @@ Flutter
 
 ## Screenshots
 
-![assigned supplier](https://github.com/user-attachments/assets/e2d80831-4654-41fb-88f6-0fe9eb0ec4c9)
+### Login Page
+![logincell](https://github.com/user-attachments/assets/0e41736b-0a17-46f0-9a1b-48e1d9e56b88)
+
+### Admin Panel
+#### Customer Details Page
+![customer](https://github.com/user-attachments/assets/a70a3343-cd00-443b-9548-3f768eafbe4c)
+
+#### Products Page
+![products](https://github.com/user-attachments/assets/3fe97cf6-01cd-4021-b85a-19782b70ef59)
+
+#### Product Details Page
+![viewpro](https://github.com/user-attachments/assets/aac2edd5-b84f-4bf7-a148-fe01adc2c4fc)
+
+#### Assigned Suppliers
+![assigned supplier](https://github.com/user-attachments/assets/901a7c3b-9557-4248-b6f6-2907555a5628)
+
+#### Customer Orders Page
+![orders](https://github.com/user-attachments/assets/04ef9df1-a035-49d0-a410-5e233a4794bb)
+
+### Supplier Panel
+#### Products Page
+![supdash](https://github.com/user-attachments/assets/465579b4-5065-4931-ac2d-62ab4070df9b)
+
+#### Add Product Page
+![additem](https://github.com/user-attachments/assets/99acde13-7bc8-4a21-8638-7afaf33f7876)
+
+### Driver Panel
+#### Completed Orders
+![driv](https://github.com/user-attachments/assets/81455673-a4de-44b1-8cf3-35ea51350be6)
+
+
+
+
+
+
+
+
+
+
+
+
 
