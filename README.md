@@ -10,47 +10,37 @@ Cellmaster is a comprehensive mobile and accessories selling platform designed t
 ## Features
 
 ### Admin Panel
-##### Admin Login
-##### Customer Management
+- Admin Login
 - View Customer Information 
 - Get the Customer Orders
-##### Suppliers’ Management
 - View Supplier Information
 - Assigned orders for suppliers
-##### Drivers’ Management
 - View Driver Information
-##### Product Management
 - View Product Information
-#### View Completed Orders
+- View Completed Orders
 
 ### Supplier Panel
-##### Admin Login
-##### Account Management
 - Supplier Registration and Login
 - Update the Profile
-####Product Management
 - Create / Update / Delete Products
 - Get the customer order 
-#### Drivers’ management
 - View Driver Information
 - Assigned the order for drivers
-#### View Completed Orders
+- View Completed Orders
 
 ### Driver Panel
-##### Account Management
 - Driver Registration and Login
 - Update the Profile
-#### Get the Orders
-#### View Completed Orders
+- Get the Orders
+- View Completed Orders
 
 ### Customer (Front-end)
-#### Account Management
 - Customer Registration and Login
 - Update the Profile
-#### View Products
-#### Add to Cart
-#### View Order process
-#### View Purchase history
+- View Products
+- Add to Cart
+- View Order process
+- View Purchase history
 
 
 
@@ -60,7 +50,7 @@ Cellmaster is a comprehensive mobile and accessories selling platform designed t
 
 <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" width="50" height="50" margin-right="50px"/>   <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind CSS" width="50" height="50"/> 
 
-<img src="[https://raw.githubusercontent.com/alpinejs/alpine/HEAD/art/alpine-logo.svg](https://www.google.com/url?sa=i&url=https%3A%2F%2Falpinejs.dev%2F&psig=AOvVaw2WEnZfveUkiWyvA9swPgfr&ust=1727980264490000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKC09qCq8IgDFQAAAAAdAAAAABAE)" alt="Alpine.js" width="50" height="50" style="margin-right: 10px;" />
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2Falpinejs&psig=AOvVaw2WEnZfveUkiWyvA9swPgfr&ust=1727980264490000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKC09qCq8IgDFQAAAAAdAAAAABAn" alt="Alpine.js" width="50" height="50" style="margin-right: 10px;" />
 
 <img src="https://livewire-framework.com/img/logo.svg" alt="Livewire" width="50" height="50"/> 
 
