@@ -47,12 +47,17 @@ Cellmaster is a comprehensive mobile and accessories selling platform designed t
 
 
 ## Technologies Used
+### Back-end Development
+Laravel 11 , Tailwind CSS , Livewire , Alpine js
 
-<img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" width="50" height="50" margin-right="50px"/>   <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind CSS" width="50" height="50"/> 
+<img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" width="100" height="100"/>&nbsp;   <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind CSS" width="100" height="100" margin-right="50px"/>&nbsp; <img src="https://laravel-livewire.com/img/logo.svg" alt="Livewire Logo" width="100" height="100" margin-right="100px" /> &nbsp;<img src="https://alpinejs.dev/logo.svg" alt="Alpine.js Logo" width="100" height="100" margin-right="50px" />&nbsp;
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2Falpinejs&psig=AOvVaw2WEnZfveUkiWyvA9swPgfr&ust=1727980264490000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKC09qCq8IgDFQAAAAAdAAAAABAn" alt="Alpine.js" width="50" height="50" style="margin-right: 10px;" />
 
-<img src="https://livewire-framework.com/img/logo.svg" alt="Livewire" width="50" height="50"/> 
+### Front-end Development
+<img src="https://flutter.dev/assets/images/shared/brand/flutter/logo/flutter-lockup.svg" alt="Flutter Logo" width="200" height="100" />
+
+
+
 
 
 
