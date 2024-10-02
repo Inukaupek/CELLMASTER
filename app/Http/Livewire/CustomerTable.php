@@ -24,7 +24,7 @@ class CustomerTable extends Component
         $customers = Customer::where('name', 'like', '%' . $this->search . '%')
             ->orWhere('email', 'like', '%' . $this->search . '%')
             ->orWhere('contact', 'like', '%' . $this->search . '%')
-            ->paginate(4);  // Change the number 8 to how many records you want per page
+            ->paginate(7);  // Change the number 8 to how many records you want per page
 
         return view('livewire.customer-table', ['customers' => $customers]);
     }
