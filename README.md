@@ -1,4 +1,6 @@
 
+<p align="center"><img src="public/images/newlogo.png" alt="Laravel" width="250" height="250" style="margin-left=40px;"/></p>
+
 # CELLMASTER
 
 Cellmaster is a comprehensive mobile and accessories selling platform designed to streamline the process of purchasing mobile devices and related accessories. This application offers users a seamless shopping experience, allowing them to browse a wide range of products, place orders, and track deliveries all through a user-friendly mobile interface. 
