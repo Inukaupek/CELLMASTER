@@ -60,7 +60,7 @@ Cellmaster is a comprehensive mobile and accessories selling platform designed t
 
 <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel" width="50" height="50" margin-right="50px"/>   <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind CSS" width="50" height="50"/> 
 
-<img src="https://raw.githubusercontent.com/alpinejs/alpine/HEAD/art/alpine-logo.svg" alt="Alpine.js" width="50" height="50" style="margin-right: 10px;" />
+<img src="[https://raw.githubusercontent.com/alpinejs/alpine/HEAD/art/alpine-logo.svg](https://www.google.com/url?sa=i&url=https%3A%2F%2Falpinejs.dev%2F&psig=AOvVaw2WEnZfveUkiWyvA9swPgfr&ust=1727980264490000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKC09qCq8IgDFQAAAAAdAAAAABAE)" alt="Alpine.js" width="50" height="50" style="margin-right: 10px;" />
 
 <img src="https://livewire-framework.com/img/logo.svg" alt="Livewire" width="50" height="50"/> 
 
@@ -71,5 +71,5 @@ Cellmaster is a comprehensive mobile and accessories selling platform designed t
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![assigned supplier](https://github.com/user-attachments/assets/e2d80831-4654-41fb-88f6-0fe9eb0ec4c9)
 
